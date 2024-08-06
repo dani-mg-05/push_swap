@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damedina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 17:05:51 by damedina          #+#    #+#             */
-/*   Updated: 2024/07/23 16:58:32 by damedina         ###   ########.fr       */
+/*   Created: 2024/07/23 16:25:19 by damedina          #+#    #+#             */
+/*   Updated: 2024/07/23 18:50:15 by damedina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
 t_stack	*new_stack(void)
 {
@@ -117,8 +117,5 @@ int	main(int argc, char **argv)
 		clean_stack(stack_a);
 		return (show_error());
 	}
-	sort(stack_a, stack_b);
-	clean_stack(stack_a);
-	clean_stack(stack_b);
-	return (0);
+	return (check_instructions(stack_a, stack_b));
 }

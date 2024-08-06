@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damedina <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 17:05:58 by damedina          #+#    #+#             */
-/*   Updated: 2024/07/23 14:45:38 by damedina         ###   ########.fr       */
+/*   Created: 2024/07/23 14:39:05 by damedina          #+#    #+#             */
+/*   Updated: 2024/07/23 20:45:49 by damedina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
 # include "../libft/libft.h"
+
+# define BUFFER_SIZE 1
 
 typedef struct s_node
 {
@@ -38,36 +40,28 @@ typedef struct s_stack
 }	t_stack;
 
 void	push(t_stack *dst, t_stack *src);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
+int		pa(t_stack *stack_a, t_stack *stack_b);
+int		pb(t_stack *stack_a, t_stack *stack_b);
 void	swap(t_stack *stack);
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_b);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+int		sa(t_stack *stack_a);
+int		sb(t_stack *stack_b);
+int		ss(t_stack *stack_a, t_stack *stack_b);
 void	rotate(t_stack *stack);
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+int		ra(t_stack *stack_a);
+int		rb(t_stack *stack_b);
+int		rr(t_stack *stack_a, t_stack *stack_b);
 void	reverse_rotate(t_stack *stack);
-void	rra(t_stack *stack_a);
-void	rrb(t_stack *stack_b);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
-void	push_min_cost(t_stack *stack_a, t_stack *stack_b, int min_cost);
+int		rra(t_stack *stack_a);
+int		rrb(t_stack *stack_b);
+int		rrr(t_stack *stack_a, t_stack *stack_b);
 void	change_max_min(t_stack *dst, t_stack *src, t_node *node);
-int		is_sort_down(t_stack *stack);
-int		is_sort_up(t_stack *stack);
-void	short_sort(t_stack *stack_a);
-void	sort(t_stack *stack_a, t_stack *stack_b);
-int		moves_a(t_stack *stack_a, int position, int *dir);
-int		moves_b(t_stack *stack_b, int value, int *dir);
-void	count_moves(t_stack *stack_a, t_stack *stack_b);
+int		check_instructions(t_stack *stack_a, t_stack *stack_b);
+char	*get_next_line(int fd);
 char	**parse_args(int argc, char **argv, int *num_args);
 int		in_stack(t_stack *stack, int n);
 t_stack	*clean_stack(t_stack *stack);
 char	**free_split(char **split);
 char	**free_args(char **args, int num_args);
 int		show_error(void);
-void	print_stack(t_stack *stack);
-void	print_positions(t_stack *stack);
 
 #endif
